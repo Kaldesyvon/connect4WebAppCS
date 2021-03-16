@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3NXLlbuXtZ0gjl+W2ei0E+GrGWO0ytDorojiIsE8EsE0ZEMVK5ePK7MvAp10obP6xw1n9AaMTP5LaUkSzf8JKQ==",
+  "dgSpecHash": "PTjsXaA7ZKL1SQT/Ebu2KOkclNOqS70+vs6FrR0LA/LawitvQKb0gsRur7YtKxbFn9Z3wlpPd73hqTdMlQYT3A==",
   "success": true,
-  "projectFilePath": "E:\\Skola\\dotnet-2021\\connect4\\connect4\\connect4Core.csproj",
+  "projectFilePath": "E:\\Skola\\dotnet-2021\\connect4\\connect4\\connect4Console.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

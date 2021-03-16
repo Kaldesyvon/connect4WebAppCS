@@ -1,0 +1,9 @@
+E:\Skola\dotnet-2021\connect4\connect4Core\bin\Debug\netcoreapp3.1\connect4Core.deps.json
+E:\Skola\dotnet-2021\connect4\connect4Core\bin\Debug\netcoreapp3.1\connect4Core.dll
+E:\Skola\dotnet-2021\connect4\connect4Core\bin\Debug\netcoreapp3.1\connect4Core.pdb
+E:\Skola\dotnet-2021\connect4\connect4Core\obj\Debug\netcoreapp3.1\connect4Core.csprojAssemblyReference.cache
+E:\Skola\dotnet-2021\connect4\connect4Core\obj\Debug\netcoreapp3.1\connect4Core.AssemblyInfoInputs.cache
+E:\Skola\dotnet-2021\connect4\connect4Core\obj\Debug\netcoreapp3.1\connect4Core.AssemblyInfo.cs
+E:\Skola\dotnet-2021\connect4\connect4Core\obj\Debug\netcoreapp3.1\connect4Core.csproj.CoreCompileInputs.cache
+E:\Skola\dotnet-2021\connect4\connect4Core\obj\Debug\netcoreapp3.1\connect4Core.dll
+E:\Skola\dotnet-2021\connect4\connect4Core\obj\Debug\netcoreapp3.1\connect4Core.pdb

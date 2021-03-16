@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Skola\\dotnet-2021\\connect4\\connect4\\connect4.csproj": {}
+    "E:\\Skola\\dotnet-2021\\connect4\\connect4Core\\connect4Core.csproj": {}
   },
   "projects": {
-    "E:\\Skola\\dotnet-2021\\connect4\\connect4\\connect4.csproj": {
+    "E:\\Skola\\dotnet-2021\\connect4\\connect4Core\\connect4Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Skola\\dotnet-2021\\connect4\\connect4\\connect4.csproj",
-        "projectName": "connect4",
-        "projectPath": "E:\\Skola\\dotnet-2021\\connect4\\connect4\\connect4.csproj",
+        "projectUniqueName": "E:\\Skola\\dotnet-2021\\connect4\\connect4Core\\connect4Core.csproj",
+        "projectName": "connect4Core",
+        "projectPath": "E:\\Skola\\dotnet-2021\\connect4\\connect4Core\\connect4Core.csproj",
         "packagesPath": "C:\\Users\\Stena\\.nuget\\packages\\",
-        "outputPath": "E:\\Skola\\dotnet-2021\\connect4\\connect4\\obj\\",
+        "outputPath": "E:\\Skola\\dotnet-2021\\connect4\\connect4Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Stena\\AppData\\Roaming\\NuGet\\NuGet.Config",
