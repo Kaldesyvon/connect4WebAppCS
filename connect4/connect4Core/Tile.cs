@@ -2,16 +2,12 @@
 {
     public class Tile
     {
-        private StoneColor? stoneColor;
+        private StoneColor? _stoneColor;
 
         public Tile()
         {
-            stoneColor = null;
+            _stoneColor = null;
         }
-
-        public StoneColor? GetStoneColor()
-        {
-            return stoneColor;
-        }
+        public StoneColor? StoneColor { get; set; }
     }
 }

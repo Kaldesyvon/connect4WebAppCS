@@ -3,6 +3,6 @@
     public enum StoneColor
     {
         Red,
-        Yellow
+        Yellow,
     }
 }

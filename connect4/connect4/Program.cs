@@ -4,12 +4,12 @@ namespace connect4Console
 {
     public class Program
     {
-        static void Main()
+        private static void Main()
         {
-            var playfieldWidth = 7;
-            var playfieldHeight = 6;
+            const int playfieldWidth = 7;
+            const int playfieldHeight = 6;
             var playfield = new Playfield(playfieldWidth, playfieldHeight);
-            var consoleUi = new ConsoleUI(playfield);
+            var consoleUi = new ConsoleUi(playfield);
             consoleUi.Play();
         }
     }
