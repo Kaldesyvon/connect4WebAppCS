@@ -1,6 +1,6 @@
 ﻿namespace connect4Core
 {
-    public enum StoneColor
+    public enum TileState
     {
         Red,
         Yellow,

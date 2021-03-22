@@ -10,7 +10,8 @@ namespace connect4Console
             const int playfieldHeight = 6;
             var playfield = new Playfield(playfieldWidth, playfieldHeight);
             var consoleUi = new ConsoleUi(playfield);
-            consoleUi.Play();
+            // Red player is first
+            consoleUi.Play(PlayerColor.Red);
         }
     }
 }

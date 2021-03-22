@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using connect4Core;
 
 namespace connect4Console
@@ -6,47 +7,85 @@ namespace connect4Console
     public class ConsoleUi
     {
         private readonly Playfield _playfield;
-        
+        private readonly Player player1;
+        private readonly Player player2;
 
         public ConsoleUi(Playfield playfield)
         {
             _playfield = playfield;
+            player1 = CreatePlayer(PlayerColor.Red, playfield);
+            player2 = CreatePlayer(PlayerColor.Yellow, playfield);
         }
 
-        public void Play()
+        private static Player CreatePlayer(PlayerColor color, Playfield playfield)
         {
-            var maxTurns = _playfield.PlayfieldHeight * _playfield.PlayfieldWidth;
+            Console.WriteLine("Enter name of " + (color == PlayerColor.Red ? "RED" : "YELLOW") + " player: ");
+            var line = Console.ReadLine();
+            return new Player(line, color, playfield);
+        }
+
+        public void Play(PlayerColor firstPlayer)
+        {
+            var maxTurns = _playfield.Height * _playfield.Width;
             var turnsDone = 0;
-            var player = 1;
+
+            var playerOnTurn = firstPlayer == PlayerColor.Red ? player1 : player2;
             do
             {
                 ShowPlayfield();
                 var column = ProcessInput();
 
-                if (!_playfield.AddStone((player == 1) ? StoneColor.Red : StoneColor.Yellow, column))
+                if (!playerOnTurn.AddStone(column))
                 {
                     Console.WriteLine("stone cannot be added on top");
                     continue;
                 }
                 
-                player = SwitchPlayer(player);
+                playerOnTurn = SwitchPlayer(playerOnTurn);
                 turnsDone++;
-            } while (_playfield.CheckForWin() && turnsDone != maxTurns);
+            } while (!_playfield.CheckForWin() && turnsDone != maxTurns);
+
+            ShowPlayfield();
+
+            if (turnsDone == maxTurns)
+            {
+                Tie(player1, player2);
+            }
+            else
+            {
+                CelebrateWinner(SwitchPlayer(playerOnTurn), playerOnTurn);
+            }
+            
         }
 
-        private static int SwitchPlayer(int player)
+        private static void CelebrateWinner(Player winner, Player looser)
         {
-            return -player;
+            Console.WriteLine(winner.Name + " wins!");
+            winner.AddPoints(10);
+            looser.AddPoints(-5);
+        }
+
+        private static void Tie(Player player1, Player player2)
+        {
+            Console.WriteLine("Its a TIE!");
+            player1.AddPoints(5);
+            player2.AddPoints(5);
+        }
+
+        private Player SwitchPlayer(Player player)
+        {
+            return player.PlayerColor == PlayerColor.Red ? player2 : player1;
         }
 
         public void ShowPlayfield()
         {
-            for (var i = 0; i < _playfield.PlayfieldHeight; i++)
+            Console.Clear();
+            for (var i = 0; i < _playfield.Height; i++)
             {
                 Console.Write(i);
-                for (var j = 0; j < _playfield.PlayfieldWidth; j++)
+                for (var j = 0; j < _playfield.Width; j++)
                 {
-                    var tile = _playfield.GetTile(i, j);
+                    var tile = _playfield.Tiles[i,j];
 
                     if (tile == null)
                     {
@@ -54,13 +93,15 @@ namespace connect4Console
                     }
                     else
                     {
-                        Console.Write((tile.StoneColor == StoneColor.Red) ? " R " : " Y ");
+                        Console.ForegroundColor = tile.StoneColor == TileState.Red ? ConsoleColor.Red : ConsoleColor.Yellow;
+                        Console.Write(" O ");
+                        Console.ResetColor();
                     }
                 }
                 Console.WriteLine();
             }
 
-            for (var i = 0; i < _playfield.PlayfieldWidth; i++)
+            for (var i = 0; i < _playfield.Width; i++)
             {
                 Console.Write("{0,3}", i);
             }
@@ -69,11 +110,7 @@ namespace connect4Console
         private static int ProcessInput()
         {
             Console.Write("select column: ");
-            return Int32.Parse(Console.ReadLine()!);
-            //if (input < 0 || input > _playfield.PlayfieldWidth)
-            //{
-            //    ProcessInput();
-            //}
+            return int.Parse(Console.ReadLine()!);
         }
     }
 }

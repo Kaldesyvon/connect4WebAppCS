@@ -2,12 +2,15 @@
 {
     public class Tile
     {
-        private StoneColor? _stoneColor;
-
-        public Tile()
+        public Tile(TileState tileState, int columnPosition)
         {
-            _stoneColor = null;
+            StoneColor = tileState;
+            ColumnPosition = columnPosition;
+            RowPosition = 0;
         }
-        public StoneColor? StoneColor { get; set; }
+
+        public TileState StoneColor { get; }
+        public int RowPosition { get; set; }
+        public int ColumnPosition { get; }
     }
 }
