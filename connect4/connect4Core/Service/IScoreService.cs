@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using connect4Core.Entity;
 
 namespace connect4Core.Service
 {
     public interface IScoreService
     {
-        void AddScore();
-        IList<Score> getTopScores();
-        void reset();
+        void AddScore(Score score);
+        IList<Score> GetTopScores();
+        void  Reset();
     }
 }
