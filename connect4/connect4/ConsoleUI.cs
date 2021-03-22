@@ -1,20 +1,19 @@
 ﻿using System;
 using connect4Core.Core;
 
-
 namespace connect4Console
 {
     public class ConsoleUi
     {
         private readonly Playfield _playfield;
-        private readonly Player player1;
-        private readonly Player player2;
+        private readonly Player _player1;
+        private readonly Player _player2;
 
         public ConsoleUi(Playfield playfield)
         {
             _playfield = playfield;
-            player1 = CreatePlayer(PlayerColor.Red, playfield);
-            player2 = CreatePlayer(PlayerColor.Yellow, playfield);
+            _player1 = CreatePlayer(PlayerColor.Red, playfield);
+            _player2 = CreatePlayer(PlayerColor.Yellow, playfield);
         }
 
         private static Player CreatePlayer(PlayerColor color, Playfield playfield)
@@ -29,7 +28,7 @@ namespace connect4Console
             var maxTurns = _playfield.Height * _playfield.Width;
             var turnsDone = 0;
 
-            var playerOnTurn = firstPlayer == PlayerColor.Red ? player1 : player2;
+            var playerOnTurn = firstPlayer == PlayerColor.Red ? _player1 : _player2;
             do
             {
                 ShowPlayfield();
@@ -50,7 +49,7 @@ namespace connect4Console
 
             if (turnsDone == maxTurns)
             {
-                Tie(player1, player2);
+                Tie(_player1, _player2);
             }
             else
             {
@@ -62,8 +61,8 @@ namespace connect4Console
 
         private void PrintScore()
         {
-            Console.WriteLine(player1.GetPoints);
-            Console.WriteLine(player2.GetPoints);
+            Console.WriteLine(_player1.GetPoints);
+            Console.WriteLine(_player2.GetPoints);
         }
 
         private static void CelebrateWinner(Player winner, Player looser)
@@ -82,7 +81,7 @@ namespace connect4Console
 
         private Player SwitchPlayer(Player player)
         {
-            return player.PlayerColor == PlayerColor.Red ? player2 : player1;
+            return player.PlayerColor == PlayerColor.Red ? _player2 : _player1;
         }
 
         public void ShowPlayfield()
