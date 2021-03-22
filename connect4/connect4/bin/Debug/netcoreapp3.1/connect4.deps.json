@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "connect4/1.0.0": {
+        "dependencies": {
+          "connect4Core": "1.0.0"
+        },
         "runtime": {
           "connect4.dll": {}
+        }
+      },
+      "connect4Core/1.0.0": {
+        "runtime": {
+          "connect4Core.dll": {}
         }
       }
     }
   },
   "libraries": {
     "connect4/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "connect4Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

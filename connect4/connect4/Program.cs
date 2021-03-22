@@ -1,4 +1,4 @@
-﻿using connect4Core;
+﻿using connect4Core.Core;
 
 namespace connect4Console
 {

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
-using connect4Core;
+using connect4Core.Core;
+
 
 namespace connect4Console
 {
@@ -40,12 +40,13 @@ namespace connect4Console
                     Console.WriteLine("stone cannot be added on top");
                     continue;
                 }
-                
+
                 playerOnTurn = SwitchPlayer(playerOnTurn);
                 turnsDone++;
             } while (!_playfield.CheckForWin() && turnsDone != maxTurns);
 
             ShowPlayfield();
+
 
             if (turnsDone == maxTurns)
             {
@@ -55,7 +56,14 @@ namespace connect4Console
             {
                 CelebrateWinner(SwitchPlayer(playerOnTurn), playerOnTurn);
             }
-            
+
+            PrintScore();
+        }
+
+        private void PrintScore()
+        {
+            Console.WriteLine(player1.GetPoints);
+            Console.WriteLine(player2.GetPoints);
         }
 
         private static void CelebrateWinner(Player winner, Player looser)
@@ -85,7 +93,7 @@ namespace connect4Console
                 Console.Write(i);
                 for (var j = 0; j < _playfield.Width; j++)
                 {
-                    var tile = _playfield.Tiles[i,j];
+                    var tile = _playfield[i, j];
 
                     if (tile == null)
                     {
@@ -106,7 +114,9 @@ namespace connect4Console
                 Console.Write("{0,3}", i);
             }
             Console.WriteLine();
+
         }
+
         private static int ProcessInput()
         {
             Console.Write("select column: ");

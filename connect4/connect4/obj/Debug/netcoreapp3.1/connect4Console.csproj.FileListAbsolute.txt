@@ -4,13 +4,13 @@ E:\Skola\dotnet-2021\connect4\connect4\bin\Debug\netcoreapp3.1\connect4Console.r
 E:\Skola\dotnet-2021\connect4\connect4\bin\Debug\netcoreapp3.1\connect4Console.runtimeconfig.dev.json
 E:\Skola\dotnet-2021\connect4\connect4\bin\Debug\netcoreapp3.1\connect4Console.dll
 E:\Skola\dotnet-2021\connect4\connect4\bin\Debug\netcoreapp3.1\connect4Console.pdb
+E:\Skola\dotnet-2021\connect4\connect4\bin\Debug\netcoreapp3.1\connect4Core.dll
+E:\Skola\dotnet-2021\connect4\connect4\bin\Debug\netcoreapp3.1\connect4Core.pdb
 E:\Skola\dotnet-2021\connect4\connect4\obj\Debug\netcoreapp3.1\connect4Console.csprojAssemblyReference.cache
 E:\Skola\dotnet-2021\connect4\connect4\obj\Debug\netcoreapp3.1\connect4Console.AssemblyInfoInputs.cache
 E:\Skola\dotnet-2021\connect4\connect4\obj\Debug\netcoreapp3.1\connect4Console.AssemblyInfo.cs
 E:\Skola\dotnet-2021\connect4\connect4\obj\Debug\netcoreapp3.1\connect4Console.csproj.CoreCompileInputs.cache
+E:\Skola\dotnet-2021\connect4\connect4\obj\Debug\netcoreapp3.1\connect4Console.csproj.CopyComplete
 E:\Skola\dotnet-2021\connect4\connect4\obj\Debug\netcoreapp3.1\connect4Console.dll
 E:\Skola\dotnet-2021\connect4\connect4\obj\Debug\netcoreapp3.1\connect4Console.pdb
 E:\Skola\dotnet-2021\connect4\connect4\obj\Debug\netcoreapp3.1\connect4Console.genruntimeconfig.cache
-E:\Skola\dotnet-2021\connect4\connect4\bin\Debug\netcoreapp3.1\connect4Core.dll
-E:\Skola\dotnet-2021\connect4\connect4\bin\Debug\netcoreapp3.1\connect4Core.pdb
-E:\Skola\dotnet-2021\connect4\connect4\obj\Debug\netcoreapp3.1\connect4Console.csproj.CopyComplete
