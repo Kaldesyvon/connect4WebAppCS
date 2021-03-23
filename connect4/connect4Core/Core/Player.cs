@@ -3,6 +3,13 @@
     public class Player
     {
         private readonly Playfield _playfield;
+
+        /// <summary>
+        /// Creates instance of player.
+        /// </summary>
+        /// <param name="name">Name of player.</param>
+        /// <param name="playerColor">His color.</param>
+        /// <param name="playfield">Playfield which players play on.</param>
         public Player(string name, Color playerColor, Playfield playfield)
         {
             Name = name;
@@ -10,6 +17,12 @@
             this._playfield = playfield;
             Points = 0;
         }
+
+        public int Points { get; private set; }
+
+        public string Name { get; }
+
+        public Color PlayerColor { get; }
 
         /// <summary>
         /// Adds amount points to player.
@@ -19,12 +32,6 @@
         {
             Points += amount;
         }
-
-        public int Points { get; private set; }
-
-        public string Name { get; }
-
-        public Color PlayerColor { get; }
 
         /// <summary>
         /// Player make action of adding stone to playfield.

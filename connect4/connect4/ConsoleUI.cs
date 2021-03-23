@@ -8,8 +8,8 @@ namespace connect4Console
     public class ConsoleUi
     {
         private static  Playfield _playfield;
-        private readonly Player _player1;
-        private readonly Player _player2;
+        private readonly Player _redPlayer;
+        private readonly Player _yellowPlayer;
 
         private static readonly IRatingService Rating = new RatingServiceFile();
         private static readonly ICommentService Comment = new CommentServiceFile();
@@ -22,15 +22,8 @@ namespace connect4Console
         public ConsoleUi(Playfield playfield)
         {
             _playfield = playfield;
-            _player1 = CreatePlayer(Color.Red, playfield);
-            _player2 = CreatePlayer(Color.Yellow, playfield);
-        }
-
-        private static Player CreatePlayer(Color color, Playfield playfield)
-        {
-            Console.WriteLine("Enter name of " + (color == Color.Red ? "RED" : "YELLOW") + " player: ");
-            var line = Console.ReadLine();
-            return new Player(line, color, playfield);
+            _redPlayer = CreatePlayer(Color.Red, playfield);
+            _yellowPlayer = CreatePlayer(Color.Yellow, playfield);
         }
 
         /// <summary>
@@ -44,7 +37,7 @@ namespace connect4Console
                 var maxTurns = _playfield.Height * _playfield.Width;
                 var turnsDone = 0;
 
-                var playerOnTurn = firstPlayer == Color.Red ? _player1 : _player2;
+                var playerOnTurn = firstPlayer == Color.Red ? _redPlayer : _yellowPlayer;
                 do
                 {
                     ShowPlayfield();
@@ -66,7 +59,7 @@ namespace connect4Console
 
                 if (turnsDone == maxTurns)
                 {
-                    Tie(_player1, _player2);
+                    Tie(_redPlayer, _yellowPlayer);
                 }
                 else
                 {
@@ -74,6 +67,7 @@ namespace connect4Console
                 }
 
                 PrintScore();
+
                 if (PlayAgain())
                 {
                     firstPlayer = SwitchPlayer(firstPlayer);
@@ -81,6 +75,14 @@ namespace connect4Console
                 }
                 break;
             }
+            Console.WriteLine("Thank you for playing!");
+        }
+
+        private static Player CreatePlayer(Color color, Playfield playfield)
+        {
+            Console.WriteLine("Enter name of " + (color == Color.Red ? "RED" : "YELLOW") + " player: ");
+            var line = Console.ReadLine();
+            return new Player(line, color, playfield);
         }
 
         private static Color SwitchPlayer(Color playerColor)
@@ -90,7 +92,7 @@ namespace connect4Console
 
         private Player SwitchPlayer(Player player)
         {
-            return player.PlayerColor == Color.Red ? _player2 : _player1;
+            return player.PlayerColor == Color.Red ? _yellowPlayer : _redPlayer;
         }
 
         private static bool PlayAgain()
@@ -135,9 +137,9 @@ namespace connect4Console
         private void PrintScore()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(_player1.Name + "'s points " + _player1.Points);
+            Console.WriteLine(_redPlayer.Name + "'s points " + _redPlayer.Points);
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(_player2.Name + "'s points " + _player2.Points);
+            Console.WriteLine(_yellowPlayer.Name + "'s points " + _yellowPlayer.Points);
             Console.ResetColor();
         }
 
