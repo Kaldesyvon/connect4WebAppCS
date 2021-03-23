@@ -10,7 +10,7 @@ namespace connect4Test
     {
         private static ICommentService CreateService()
         {
-            return new CommentService();
+            return new CommentServiceFile();
         }
 
         [TestMethod]

@@ -40,7 +40,7 @@ namespace connect4Test
         }
 
         [TestMethod]
-        public void AverageTest()
+        public void AverageTest1()
         {
             var service = CreateService();
 
@@ -50,6 +50,14 @@ namespace connect4Test
             Assert.AreEqual(10, service.GetRating("martin"));
             Assert.AreEqual(5, service.GetRating("obi-wan"));
             Assert.AreEqual(7.5, service.GetAverageRating());
+        }
+
+        [TestMethod]
+        public void AverageTest2()
+        {
+            var service = CreateService();
+
+            Assert.AreEqual(-1, service.GetRating("martin"));
         }
 
         [TestMethod]

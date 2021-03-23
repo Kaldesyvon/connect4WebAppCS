@@ -1,6 +1,9 @@
 ﻿namespace connect4Core.Core
 {
-    public enum PlayerColor
+    /// <summary>
+    /// Enum for color. Can be either red or yellow.
+    /// </summary>
+    public enum Color
     {
         Red,
         Yellow,

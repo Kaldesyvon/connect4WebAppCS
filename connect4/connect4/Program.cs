@@ -11,7 +11,9 @@ namespace connect4Console
             var playfield = new Playfield(playfieldWidth, playfieldHeight);
             var consoleUi = new ConsoleUi(playfield);
             // Red player is first
-            consoleUi.Play(PlayerColor.Red);
+            consoleUi.Play(Color.Red);
+
+
         }
     }
 }

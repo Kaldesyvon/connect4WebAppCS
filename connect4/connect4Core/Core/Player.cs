@@ -2,27 +2,35 @@
 {
     public class Player
     {
-        private int points;
         private readonly Playfield playfield;
-        public Player(string name, PlayerColor playerColor, Playfield playfield)
+        public Player(string name, Color playerColor, Playfield playfield)
         {
             Name = name;
             PlayerColor = playerColor;
             this.playfield = playfield;
-            points = 0;
+            Points = 0;
         }
 
+        /// <summary>
+        /// Adds amount points to player.
+        /// </summary>
+        /// <param name="amount">amount of points.</param>
         public void AddPoints(int amount)
         {
-            points += amount;
+            Points += amount;
         }
 
-        public int GetPoints => points;
+        public int Points { get; private set; }
 
         public string Name { get; }
 
-        public PlayerColor PlayerColor { get; }
+        public Color PlayerColor { get; }
 
+        /// <summary>
+        /// Player make action of adding stone to playfield.
+        /// </summary>
+        /// <param name="column">Indicates to which column stone has to fall.</param>
+        /// <returns>true if stone was added successfully, otherwise false.</returns>
         public bool AddStone(int column)
         {
             var rowPosition = 0;
@@ -32,7 +40,7 @@
                 return false;
             }
 
-            var stone = new Tile(PlayerColor == PlayerColor.Red ? TileState.Red : TileState.Yellow, column);
+            var stone = new Tile(PlayerColor, column);
 
             while (rowPosition < playfield.Height - 1)
             {

@@ -3,6 +3,12 @@
     public class Playfield
     {
         private readonly Tile[,] _tiles;
+
+        /// <summary>
+        /// Creates field which game is played on. Playfield is made of Tiles.
+        /// </summary>
+        /// <param name="playfieldWidth">Width od the field.</param>
+        /// <param name="playfieldHeight">Height of the field.</param>
         public Playfield(int playfieldWidth, int playfieldHeight)
         {
             Width = playfieldWidth;
@@ -11,14 +17,25 @@
         }
 
         public int Width { get; }
+
         public int Height { get; }
 
+        /// <summary>
+        /// Indexer.
+        /// </summary>
+        /// <param name="i">Row position.</param>
+        /// <param name="j">Column position.</param>
+        /// <returns>Tile located at [i,j]</returns>
         public Tile this[int i, int j]
         {
             get => _tiles[i, j];
             set => _tiles[i, j] = value;
         }
 
+        /// <summary>
+        /// Checks if game is done by checking every eight directions of each stone.
+        /// </summary>
+        /// <returns>true if game is won, otherwise false</returns>
         public bool CheckForWin()
         {
             for (var rowIndex = 0; rowIndex < Height; rowIndex++)
@@ -46,13 +63,11 @@
                     }
                 }
             }
-
             return false;
         }
 
-        private bool CheckDirection(int stoneRowPosition, int stoneColumnPosition, TileState color, int dx, int dy)
+        private bool CheckDirection(int stoneRowPosition, int stoneColumnPosition, Color color, int dx, int dy)
         {
-
             if ((dx == 1 && stoneColumnPosition > Width - 4)
                 || (dx == -1 && stoneColumnPosition < 3)
                 || (dy == -1 && stoneRowPosition < 3)
