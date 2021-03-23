@@ -55,7 +55,6 @@ namespace connect4Core.Service
             return _ratings.Select(a => a.Stars).Average();
         }
 
-
         /// <summary>
         /// Clears list of rating.
         /// </summary>

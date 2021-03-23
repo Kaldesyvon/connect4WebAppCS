@@ -2,12 +2,12 @@
 {
     public class Player
     {
-        private readonly Playfield playfield;
+        private readonly Playfield _playfield;
         public Player(string name, Color playerColor, Playfield playfield)
         {
             Name = name;
             PlayerColor = playerColor;
-            this.playfield = playfield;
+            this._playfield = playfield;
             Points = 0;
         }
 
@@ -35,16 +35,16 @@
         {
             var rowPosition = 0;
 
-            if (playfield[0, column] != null)
+            if (_playfield[0, column] != null)
             {
                 return false;
             }
 
             var stone = new Tile(PlayerColor, column);
 
-            while (rowPosition < playfield.Height - 1)
+            while (rowPosition < _playfield.Height - 1)
             {
-                if (playfield[rowPosition + 1, column] == null)
+                if (_playfield[rowPosition + 1, column] == null)
                 {
                     rowPosition++;
                 }
@@ -53,8 +53,8 @@
                     break;
                 }
             }
-            playfield[rowPosition, column] = stone;
-            playfield[rowPosition, column].RowPosition = rowPosition;
+            _playfield[rowPosition, column] = stone;
+            _playfield[rowPosition, column].RowPosition = rowPosition;
             return true;
         }
     }

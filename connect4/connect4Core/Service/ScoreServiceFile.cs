@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using connect4Core.Entity;
 
 namespace connect4Core.Service
@@ -27,7 +25,6 @@ namespace connect4Core.Service
         {
             return _scores.OrderByDescending(o => o.Points).Take(10).ToList();
         }
-
 
         /// <summary>
         /// Clears list of scores.
