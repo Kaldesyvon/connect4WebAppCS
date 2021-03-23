@@ -71,8 +71,10 @@ namespace connect4Console
                 if (PlayAgain())
                 {
                     firstPlayer = SwitchPlayer(firstPlayer);
+                    EmptyPlayfield();
                     continue;
                 }
+                AddScore(_redPlayer, _yellowPlayer);
                 break;
             }
             Console.WriteLine("Thank you for playing!");
@@ -105,7 +107,7 @@ namespace connect4Console
                 switch (line)
                 {
                     case "y":
-                        EmptyPlayfield();
+                        
                         return true;
                     case "n":
                         return false;
@@ -269,10 +271,10 @@ namespace connect4Console
             return int.Parse(input);
         }
 
-        private static void AddScore(Player playerOnTurn, Player otherPlayer)
+        private static void AddScore(Player player1, Player player2)
         {
-            Score.AddScore(new Score() {Player = playerOnTurn.Name, Points = playerOnTurn.Points, PlayedAt = new DateTime()} );
-            Score.AddScore(new Score() {Player = otherPlayer.Name, Points = otherPlayer.Points, PlayedAt = new DateTime()} );
+            Score.AddScore(new Score() {Player = player1.Name, Points = player1.Points, PlayedAt = new DateTime()} );
+            Score.AddScore(new Score() {Player = player2.Name, Points = player2.Points, PlayedAt = new DateTime()} );
         }
     }
 }
