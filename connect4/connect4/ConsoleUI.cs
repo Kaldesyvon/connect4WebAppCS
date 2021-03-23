@@ -96,9 +96,10 @@ namespace connect4Console
         private static bool PlayAgain()
         {
             Console.WriteLine("Do you want to play again? [Y/n]");
-            var line = Console.ReadLine()?.ToLower();
+            
             while (true)
             {
+                var line = Console.ReadLine()?.ToLower();
                 switch (line)
                 {
                     case "y":
@@ -178,7 +179,6 @@ namespace connect4Console
                 }
                 Console.WriteLine();
             }
-
             for (var i = 0; i < _playfield.Width; i++)
             {
                 Console.Write("{0,3}", i);
