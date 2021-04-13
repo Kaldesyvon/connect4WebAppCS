@@ -10,7 +10,9 @@ namespace connect4Test
     {
         private static ICommentService CreateService()
         {
-            return new CommentServiceFile();
+            var service = new CommentServiceEF();
+            service.Reset();
+            return service;
         }
 
         [TestMethod]
@@ -28,10 +30,10 @@ namespace connect4Test
         {
             var service = CreateService();
 
-            service.AddComment(new Comment { Player = "martin", Feedback = "keby som dostal keksik za vyhru, mal by som jeden keksik", CommentedAt = new DateTime() });
-            service.AddComment(new Comment { Player = "luna", Feedback = "meow", CommentedAt = new DateTime() });
-            service.AddComment(new Comment { Player = "hamlet", Feedback = "to be or not to be", CommentedAt = new DateTime() });
-            service.AddComment(new Comment { Player = "barborka", Feedback = "mam viac keksikov ako martin", CommentedAt = new DateTime() });
+            service.AddComment(new Comment { Player = "martin", Feedback = "keby som dostal keksik za vyhru, mal by som jeden keksik", CommentedAt = DateTime.Now });
+            service.AddComment(new Comment { Player = "luna", Feedback = "meow", CommentedAt = DateTime.Now });
+            service.AddComment(new Comment { Player = "hamlet", Feedback = "to be or not to be", CommentedAt = DateTime.Now });
+            service.AddComment(new Comment { Player = "barborka", Feedback = "mam viac keksikov ako martin", CommentedAt = DateTime.Now });
 
             Assert.AreEqual(4, service.GetComments().Count);
 
@@ -53,7 +55,7 @@ namespace connect4Test
         {
             var service = CreateService();
 
-            service.AddComment(new Comment { Player = "dony", Feedback = "hau", CommentedAt = new DateTime() });
+            service.AddComment(new Comment { Player = "dony", Feedback = "hau", CommentedAt = DateTime.Now });
             service.Reset();
 
             Assert.AreEqual(0, service.GetComments().Count);

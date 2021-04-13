@@ -10,7 +10,9 @@ namespace connect4Test
     {
         public static IRatingService CreateService()
         {
-            return new RatingServiceFile();
+            var service = new RatingServiceEF();
+            service.Reset();
+            return service;
         }
 
         [TestMethod]
@@ -18,8 +20,8 @@ namespace connect4Test
         {
             var service = CreateService();
 
-            service.AddRating(new Rating { Player = "martin", Stars = 10, RatedAt = new DateTime() } );
-            service.AddRating(new Rating { Player = "obi-wan", Stars = 5, RatedAt = new DateTime() });
+            service.AddRating(new Rating { Player = "martin", Stars = 10, RatedAt = DateTime.Now } );
+            service.AddRating(new Rating { Player = "obi-wan", Stars = 5, RatedAt = DateTime.Now });
 
             Assert.AreEqual(10,service.GetRating("martin"));
             Assert.AreEqual(5, service.GetRating("obi-wan"));
@@ -30,9 +32,9 @@ namespace connect4Test
         {
             var service = CreateService();
 
-            service.AddRating(new Rating { Player = "martin", Stars = 10, RatedAt = new DateTime() });
-            service.AddRating(new Rating { Player = "obi-wan", Stars = 5, RatedAt = new DateTime() });
-            service.AddRating(new Rating { Player = "martin", Stars = 5, RatedAt = new DateTime() });
+            service.AddRating(new Rating { Player = "martin", Stars = 10, RatedAt = DateTime.Now });
+            service.AddRating(new Rating { Player = "obi-wan", Stars = 5, RatedAt = DateTime.Now });
+            service.AddRating(new Rating { Player = "martin", Stars = 5, RatedAt = DateTime.Now });
 
             Assert.AreEqual(5, service.GetRating("martin"));
             Assert.AreEqual(5, service.GetRating("obi-wan"));
@@ -44,8 +46,8 @@ namespace connect4Test
         {
             var service = CreateService();
 
-            service.AddRating(new Rating { Player = "martin", Stars = 10, RatedAt = new DateTime() });
-            service.AddRating(new Rating { Player = "obi-wan", Stars = 5, RatedAt = new DateTime() });
+            service.AddRating(new Rating { Player = "martin", Stars = 10, RatedAt = DateTime.Now });
+            service.AddRating(new Rating { Player = "obi-wan", Stars = 5, RatedAt = DateTime.Now });
 
             Assert.AreEqual(10, service.GetRating("martin"));
             Assert.AreEqual(5, service.GetRating("obi-wan"));
@@ -65,7 +67,7 @@ namespace connect4Test
         {
             var service = CreateService();
 
-            service.AddRating(new Rating { Player = "martin", Stars = 10, RatedAt = new DateTime() });
+            service.AddRating(new Rating { Player = "martin", Stars = 10, RatedAt = DateTime.Now });
             service.Reset();
 
             Assert.AreEqual(-1, service.GetRating("martin"));

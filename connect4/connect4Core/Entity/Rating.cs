@@ -4,6 +4,8 @@ namespace connect4Core.Entity
 {
     public class Rating
     {
+        public int Id { get; set; }
+
         public string Player { get; set; }
 
         public int Stars { get; set; }

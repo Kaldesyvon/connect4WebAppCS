@@ -2,6 +2,7 @@
 using connect4Core.Entity;
 using connect4Core.Service;
 using System;
+using System.Linq;
 
 namespace connect4Console
 {
@@ -11,9 +12,9 @@ namespace connect4Console
         private readonly Player _redPlayer;
         private readonly Player _yellowPlayer;
 
-        private static readonly IRatingService Rating = new RatingServiceFile();
-        private static readonly ICommentService Comment = new CommentServiceFile();
-        private static readonly IScoreService Score = new ScoreServiceFile();
+        private static readonly IRatingService Rating = new RatingServiceEF();
+        private static readonly ICommentService Comment = new CommentServiceEF();
+        private static readonly IScoreService Score = new ScoreServiceEF();
 
         /// <summary>
         /// Create Console User Interface that handles user's input and prints game.
@@ -220,7 +221,7 @@ namespace connect4Console
                             if (stars >= 1 && stars <= 10)
                             {
                                 Rating.AddRating(new Rating()
-                                    {Player = playerOnTurn.Name, Stars = stars, RatedAt = new DateTime()});
+                                    {Player = playerOnTurn.Name, Stars = stars, RatedAt = DateTime.Now});
                                 Console.WriteLine("Thank you for rating, here is average: " + Rating.GetAverageRating());
                                 break;
                             }
@@ -229,24 +230,43 @@ namespace connect4Console
                     }
                     else if (input == "f")
                     {
-                        Console.WriteLine("Write what is on your heart");
-                        var comment = Console.ReadLine();
-                        Comment.AddComment(new Comment()
-                            {Player = playerOnTurn.Name, Feedback = comment, CommentedAt = new DateTime()});
-                        Console.WriteLine("Thank you for feedback");
-                        
+                        while (true)
+                        {
+                            Console.WriteLine("Write what is on your heart. Type 'g' to see comments 'b' to go back");
+                            var inputLine = Console.ReadLine();
+                            if (inputLine == "g")
+                            {
+                                foreach (var comment in Comment.GetComments().Take(10))
+                                {
+                                    Console.WriteLine("{0} says: {1}", comment.Player, comment.Feedback);
+                                }
+                                break;
+                            }
+                            else if (inputLine == "b")
+                            {
+                                break;
+                            }
+                            Comment.AddComment(new Comment()
+                                {Player = playerOnTurn.Name, Feedback = inputLine, CommentedAt = DateTime.Now});
+                            Console.WriteLine("Thank you for feedback");
+                            break;
+                        }
                     }
                     else if (input == "t")
                     {
                         Console.WriteLine("Here is list of 10 chads with highest score");
-                        Console.WriteLine(Score.GetTopScores().ToString());
+                        foreach (var score in Score.GetTopScores())
+                        {
+                            Console.WriteLine("{0} has scored {1}", score.Player, score.Points);
+                        }
+
                     }
                     else
                     {
                         try
                         {
                             var columnInput = int.Parse(input!);
-                            if (columnInput >= 0 && columnInput <= _playfield.Height - 1)
+                            if (columnInput >= 0 && columnInput <= _playfield.Height)
                             {
                                 break;
                             }
@@ -273,8 +293,8 @@ namespace connect4Console
 
         private static void AddScore(Player player1, Player player2)
         {
-            Score.AddScore(new Score() {Player = player1.Name, Points = player1.Points, PlayedAt = new DateTime()} );
-            Score.AddScore(new Score() {Player = player2.Name, Points = player2.Points, PlayedAt = new DateTime()} );
+            Score.AddScore(new Score() {Player = player1.Name, Points = player1.Points, PlayedAt = DateTime.Now} );
+            Score.AddScore(new Score() {Player = player2.Name, Points = player2.Points, PlayedAt = DateTime.Now} );
         }
     }
 }

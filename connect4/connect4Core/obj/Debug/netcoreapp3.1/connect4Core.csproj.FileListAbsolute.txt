@@ -7,3 +7,6 @@ E:\Skola\dotnet-2021\connect4\connect4Core\bin\Debug\netcoreapp3.1\connect4Core.
 E:\Skola\dotnet-2021\connect4\connect4Core\bin\Debug\netcoreapp3.1\connect4Core.pdb
 E:\Skola\dotnet-2021\connect4\connect4Core\obj\Debug\netcoreapp3.1\connect4Core.dll
 E:\Skola\dotnet-2021\connect4\connect4Core\obj\Debug\netcoreapp3.1\connect4Core.pdb
+E:\Skola\dotnet-2021\connect4\connect4Core\bin\Debug\netcoreapp3.1\connect4Core.runtimeconfig.json
+E:\Skola\dotnet-2021\connect4\connect4Core\bin\Debug\netcoreapp3.1\connect4Core.runtimeconfig.dev.json
+E:\Skola\dotnet-2021\connect4\connect4Core\obj\Debug\netcoreapp3.1\connect4Core.genruntimeconfig.cache
