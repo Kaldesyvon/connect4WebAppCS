@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "connect4Console", "connect4\connect4Console.csproj", "{D769079A-0BB0-4531-B0A0-79A723476590}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "connect4Console", "connect4\connect4Console.csproj", "{D769079A-0BB0-4531-B0A0-79A723476590}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CACFE15F-F5F0-4779-AAA9-7057A8881B13} = {CACFE15F-F5F0-4779-AAA9-7057A8881B13}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "connect4Core", "connect4Core\connect4Core.csproj", "{CACFE15F-F5F0-4779-AAA9-7057A8881B13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "connect4Core", "connect4Core\connect4Core.csproj", "{CACFE15F-F5F0-4779-AAA9-7057A8881B13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "connect4Test", "connect4Test\connect4Test.csproj", "{9352AE20-8D60-42FF-B546-90E9161EE46A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "connect4Test", "connect4Test\connect4Test.csproj", "{9352AE20-8D60-42FF-B546-90E9161EE46A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CACFE15F-F5F0-4779-AAA9-7057A8881B13} = {CACFE15F-F5F0-4779-AAA9-7057A8881B13}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "connect4Web", "connect4Web\connect4Web.csproj", "{6D14FB35-BB96-4A2B-9948-319E72AC86F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9352AE20-8D60-42FF-B546-90E9161EE46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9352AE20-8D60-42FF-B546-90E9161EE46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9352AE20-8D60-42FF-B546-90E9161EE46A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D14FB35-BB96-4A2B-9948-319E72AC86F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D14FB35-BB96-4A2B-9948-319E72AC86F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D14FB35-BB96-4A2B-9948-319E72AC86F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D14FB35-BB96-4A2B-9948-319E72AC86F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
