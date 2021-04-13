@@ -1,5 +1,4 @@
-﻿using connect4Core.Core;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using connect4Core.Entity;
 using connect4Core.Service;
 
