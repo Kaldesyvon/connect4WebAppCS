@@ -10,7 +10,7 @@ namespace connect4Test
     {
         public static IScoreService CreateService()
         {
-            var service = new ScoreServiceEF();
+            var service = new ScoreServiceEf();
             service.Reset();
             return service;
         }

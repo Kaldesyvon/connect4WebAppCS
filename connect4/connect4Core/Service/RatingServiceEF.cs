@@ -9,7 +9,8 @@ using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace connect4Core.Service
 {
-    public class RatingServiceEF : IRatingService
+    [Serializable]
+    public class RatingServiceEf : IRatingService
     {
         public void AddRating(Rating rating)
         {
@@ -21,12 +22,9 @@ namespace connect4Core.Service
             }
             else
             {
-                foreach (var r in (from r in context.Ratings select r).ToList())
+                foreach (var r in (from r in context.Ratings select r).ToList().Where(r => rating.Player == r.Player))
                 {
-                    if (rating.Player == r.Player)
-                    {
-                        r.Stars = rating.Stars;
-                    }
+                    r.Stars = rating.Stars;
                 }
             }
             context.SaveChanges();
@@ -45,6 +43,12 @@ namespace connect4Core.Service
         {
             using var context = new Connect4DbContext();
             return (from r in context.Ratings select r.Stars).Average();
+        }
+
+        public IList<Rating> GetRatings()
+        {
+            using var context = new Connect4DbContext();
+            return (from r in context.Ratings orderby r.RatedAt descending select r).Take(20).ToList();
         }
 
         public void Reset()

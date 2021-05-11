@@ -9,7 +9,7 @@ namespace connect4Web.APIControllers
     [ApiController]
     public class CommentController : ControllerBase
     {
-        private readonly ICommentService _commentService = new CommentServiceEF();
+        private readonly ICommentService _commentService = new CommentServiceEf();
 
         [HttpPost]
         public void AddScore(Comment comment)

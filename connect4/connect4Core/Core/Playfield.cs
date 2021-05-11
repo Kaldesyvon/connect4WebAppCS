@@ -1,8 +1,12 @@
-﻿namespace connect4Core.Core
+﻿using System;
+using Newtonsoft.Json;
+
+namespace connect4Core.Core
 {
-    public class Playfield
+    [Serializable]
+    public class Playfield : ICloneable
     {
-        private readonly Tile[,] _tiles;
+        public Tile[,] Tiles { get; set; }
 
         /// <summary>
         /// Creates field which game is played on. Playfield is made of Tiles.
@@ -13,7 +17,7 @@
         {
             Width = playfieldWidth;
             Height = playfieldHeight;
-            _tiles = new Tile[playfieldHeight, playfieldWidth];
+            Tiles = new Tile[playfieldHeight, playfieldWidth];
         }
 
         public int Width { get; }
@@ -28,25 +32,57 @@
         /// <returns>Tile located at [i,j]</returns>
         public Tile this[int i, int j]
         {
-            get => _tiles[i, j];
-            set => _tiles[i, j] = value;
+            get => Tiles[i, j];
+            set => Tiles[i, j] = value;
+        }
+
+        /// <summary>
+        /// Player make action of adding stone to playfield.
+        /// </summary>
+        /// <param name="column">Indicates to which column stone has to fall.</param>
+        /// <param name="color">Color if stone that will be added</param>
+        /// <returns>true if stone was added successfully, otherwise false.</returns>
+        public bool AddStone(int column, Color color)
+        {
+            var rowPosition = 0;
+
+            if (Tiles[0, column] != null)
+            {
+                return false;
+            }
+
+            var stone = new Tile(color, column);
+
+            while (rowPosition < Height - 1)
+            {
+                if (this[rowPosition + 1, column] == null)
+                {
+                    rowPosition++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            this[rowPosition, column] = stone;
+            this[rowPosition, column].RowPosition = rowPosition;
+            return true;
         }
 
         /// <summary>
         /// Checks if game is done by checking every eight directions of each stone.
         /// </summary>
         /// <returns>true if game is won, otherwise false</returns>
-        public bool CheckForWin()
+        public bool CheckForWin(Color color)
         {
             for (var rowIndex = 0; rowIndex < Height; rowIndex++)
             {
                 for (var columnIndex = 0; columnIndex < Width; columnIndex++)
                 {
-                    if (this[rowIndex, columnIndex] == null) continue;
-
+                    if (this[rowIndex, columnIndex] == null || this[rowIndex, columnIndex].StoneColor != color)
+                        continue;
                     var stoneRowPosition = this[rowIndex, columnIndex].RowPosition;
                     var stoneColumnPosition = this[rowIndex, columnIndex].ColumnPosition;
-                    var color = this[rowIndex, columnIndex].StoneColor;
                     for (var deltaX = -1; deltaX <= 1; deltaX++)
                     {
                         for (var deltaY = -1; deltaY <= 1; deltaY++)
@@ -93,6 +129,13 @@
                 }
             }
             return true;
+        }
+
+        public object Clone()
+        {
+            var clone = (Playfield) MemberwiseClone();
+            clone.Tiles = (Tile[,]) Tiles.Clone();
+            return clone;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace connect4Test
     {
         public static IRatingService CreateService()
         {
-            var service = new RatingServiceEF();
+            var service = new RatingServiceEf();
             service.Reset();
             return service;
         }

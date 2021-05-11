@@ -1,0 +1,36 @@
+﻿@using Playfield = connect4Core.Core.Playfield
+@model Playfield
+
+@{
+    ViewData["Title"] = "Connect4";
+}
+
+<h1>Connect4</h1>
+
+<table>
+    @for (var row = 0; row < Model.Height; row++)
+    {
+        <tr>
+            @for (var columnIndex = 0; columnIndex < Model.Width; columnIndex++)
+            {
+                var tile = Model[row, columnIndex];
+                if (@tile == null)
+                {
+                    <td>
+                        <a href="/Connect4/AddStone?column=@(columnIndex)">
+                            <img src="/images/connect4/empty.png" alt="e">
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a href="/Connect4/AddStone?column=@(columnIndex)">
+                            <img src="/images/connect4/@(tile.StoneColor).png" alt="st">
+                        </a>
+                    </td>
+                }
+            }
+        </tr>
+    }
+</table>

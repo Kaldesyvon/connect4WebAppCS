@@ -1,5 +1,8 @@
-﻿namespace connect4Core.Core
+﻿using System;
+
+namespace connect4Core.Core
 {
+    [Serializable]
     public class Player
     {
         private readonly Playfield _playfield;
@@ -14,7 +17,7 @@
         {
             Name = name;
             PlayerColor = playerColor;
-            this._playfield = playfield;
+            _playfield = playfield;
             Points = 0;
         }
 

@@ -8,7 +8,7 @@ namespace connect4Web.APIControllers
     [ApiController]
     public class RatingController : ControllerBase
     {
-        private readonly IRatingService _ratingService = new RatingServiceEF();
+        private readonly IRatingService _ratingService = new RatingServiceEf();
 
         [HttpPost]
         public void AddRating(Rating rating)

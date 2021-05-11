@@ -1,4 +1,5 @@
-﻿using connect4Core.Entity;
+﻿using System.Collections.Generic;
+using connect4Core.Entity;
 
 namespace connect4Core.Service
 {
@@ -9,6 +10,8 @@ namespace connect4Core.Service
         int GetRating(string name);
 
         double GetAverageRating();
+
+        IList<Rating> GetRatings();
 
         void Reset();
     }

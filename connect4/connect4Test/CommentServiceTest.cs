@@ -10,7 +10,7 @@ namespace connect4Test
     {
         private static ICommentService CreateService()
         {
-            var service = new CommentServiceEF();
+            var service = new CommentServiceEf();
             service.Reset();
             return service;
         }

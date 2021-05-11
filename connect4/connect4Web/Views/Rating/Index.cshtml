@@ -1,0 +1,13 @@
+﻿@model connect4Core.Service.IRatingService
+
+
+@{
+    ViewData["Title"] = "Rating";
+}
+
+<ol>
+    @foreach (var rating in Model.GetRatings())
+    {
+        <li>@rating.Player rated @rating.Stars at @rating.RatedAt.</li>
+    }
+</ol>

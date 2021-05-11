@@ -12,9 +12,9 @@ namespace connect4Console
         private readonly Player _redPlayer;
         private readonly Player _yellowPlayer;
 
-        private static readonly IRatingService Rating = new RatingServiceEF();
-        private static readonly ICommentService Comment = new CommentServiceEF();
-        private static readonly IScoreService Score = new ScoreServiceEF();
+        private static readonly IRatingService Rating = new RatingServiceEf();
+        private static readonly ICommentService Comment = new CommentServiceEf();
+        private static readonly IScoreService Score = new ScoreServiceEf();
 
         /// <summary>
         /// Create Console User Interface that handles user's input and prints game.

@@ -7,7 +7,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace connect4Core.Service
 {
-    public class ScoreServiceEF : IScoreService
+    [Serializable]
+    public class ScoreServiceEf : IScoreService
     {
         public void AddScore(Score score)
         {

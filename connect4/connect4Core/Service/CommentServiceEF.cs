@@ -7,7 +7,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace connect4Core.Service
 {
-    public class CommentServiceEF : ICommentService
+    [Serializable]
+    public class CommentServiceEf : ICommentService
     {
         public void AddComment(Comment comment)
         {

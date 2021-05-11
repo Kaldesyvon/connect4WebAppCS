@@ -1,0 +1,13 @@
+﻿@model connect4Core.Service.ICommentService
+
+
+@{
+    ViewData["Title"] = "Comments";
+}
+
+<ol>
+    @foreach (var comment in Model.GetComments())
+    {
+        <li>@comment.Player says @comment.Feedback at @comment.CommentedAt.</li>
+    }
+</ol>

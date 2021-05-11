@@ -9,7 +9,7 @@ namespace connect4Web.APIControllers
     [ApiController]
     public class ScoreController : ControllerBase
     {
-        private readonly IScoreService _scoreService = new ScoreServiceEF();
+        private readonly IScoreService _scoreService = new ScoreServiceEf();
 
         [HttpPost]
         public void AddScore(Score score)
