@@ -17,7 +17,7 @@ namespace connect4Web.Controllers
             return View("Index", scoreService);
         }
 
-        public IActionResult AddScore(Score score)
+        public IActionResult Add(Score score)
         {
             var scoreService = (ScoreServiceEf)HttpContext.Session.GetObject(ScoreSessionKey);
             score.PlayedAt = DateTime.Now;

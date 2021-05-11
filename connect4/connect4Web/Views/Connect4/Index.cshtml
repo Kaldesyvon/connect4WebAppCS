@@ -1,19 +1,31 @@
-﻿@using Playfield = connect4Core.Core.Playfield
-@model Playfield
+﻿@model Connect4Model
 
 @{
     ViewData["Title"] = "Connect4";
 }
 
+
+<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/Connect4">Connect4</a>
+            <a class="nav-item nav-link" href="/Score">Score</a>
+            <a class="nav-item nav-link" href="/Comment">Comment</a>
+            <a class="nav-item nav-link" href="/Rating">Rating</a>
+        </div>
+    </div>
+</nav>
+
 <h1>Connect4</h1>
 
 <table>
-    @for (var row = 0; row < Model.Height; row++)
+    @for (var row = 0; row < Model.Playfield.Height; row++)
     {
         <tr>
-            @for (var columnIndex = 0; columnIndex < Model.Width; columnIndex++)
+            @for (var columnIndex = 0; columnIndex < Model.Playfield.Width; columnIndex++)
             {
-                var tile = Model[row, columnIndex];
+                var tile = Model.Playfield[row, columnIndex];
                 if (@tile == null)
                 {
                     <td>
@@ -34,3 +46,18 @@
         </tr>
     }
 </table>
+
+<div>
+    @if (Model.Playfield.IsGameWon())
+    {
+        <a href="/Connect4/NewGame">New Game</a>
+    }
+</div>
+<div>
+    Your score is: <p>@Model.Points</p>
+    <form action="/Connect4/Add">
+        <input type="text" value="Your name" name="name" />
+        <input type="submit" />
+    </form>
+</div>
+

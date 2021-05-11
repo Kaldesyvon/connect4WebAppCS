@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using connect4Core.Entity;
 using connect4Core.Service;
@@ -22,11 +21,10 @@ namespace connect4Web.Controllers
             return View("Index", commentService);
         }
 
-        public IActionResult AddComment(Comment comment)
+        public IActionResult Add(Comment comment)
         {
             var commentService = (CommentServiceEf)HttpContext.Session.GetObject(CommentSessionKey);
-            comment.CommentedAt = DateTime.Now;
-            commentService.AddComment(comment);
+            commentService.AddComment(new Comment() { CommentedAt = DateTime.Now, Player = comment.Player, Feedback = comment.Feedback});
 
             return View("Index", commentService);
         }

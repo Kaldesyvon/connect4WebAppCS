@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using connect4Core.Entity;
 using connect4Core.Service;
@@ -20,7 +19,7 @@ namespace connect4Web.Controllers
             return View("Index", ratingService);
         }
 
-        public IActionResult AddRating(Rating rating)
+        public IActionResult Add(Rating rating)
         {
             var ratingService = (RatingServiceEf)HttpContext.Session.GetObject(RatingSessionKey);
             rating.RatedAt = DateTime.Now;

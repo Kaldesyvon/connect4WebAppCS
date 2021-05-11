@@ -42,7 +42,7 @@ namespace connect4Core.Service
         public double GetAverageRating()
         {
             using var context = new Connect4DbContext();
-            return (from r in context.Ratings select r.Stars).Average();
+            return Math.Round((from r in context.Ratings select r.Stars).Average(), 2); 
         }
 
         public IList<Rating> GetRatings()

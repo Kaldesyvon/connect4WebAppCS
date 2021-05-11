@@ -54,15 +54,6 @@
           "jQuery": "1.6.4"
         }
       },
-      "Microsoft.AspNet.SignalR.SystemWeb/2.4.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.AspNet.SignalR.SystemWeb.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.SignalR.SystemWeb.dll": {}
-        }
-      },
       "Microsoft.AspNetCore.Http/2.2.2": {
         "type": "package",
         "dependencies": {
@@ -746,15 +737,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.VisualBasic.dll": {}
-        }
-      },
-      "Microsoft.WebSockets/0.2.3.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.WebSockets.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.WebSockets.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -3054,6 +3036,15 @@
           "lib/netcoreapp1.0/WebSocketManager.Common.dll": {}
         }
       },
+      "WebSocketSharp/1.0.3-rc11": {
+        "type": "package",
+        "compile": {
+          "lib/websocket-sharp.dll": {}
+        },
+        "runtime": {
+          "lib/websocket-sharp.dll": {}
+        }
+      },
       "connect4Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -3132,21 +3123,6 @@
         "content/Scripts/jquery.signalR-2.4.2.min.js",
         "microsoft.aspnet.signalr.js.2.4.2.nupkg.sha512",
         "microsoft.aspnet.signalr.js.nuspec",
-        "packageIcon.png"
-      ]
-    },
-    "Microsoft.AspNet.SignalR.SystemWeb/2.4.2": {
-      "sha512": "VzMfXFIDsQwWXIXJZlMkOSTW6DnjZ4ZgMcXM4ihbg014DgAezrsNG9aNcsIjNSyDWvMG7iT0oAREjmB+Dvu1Cw==",
-      "type": "package",
-      "path": "microsoft.aspnet.signalr.systemweb/2.4.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.AspNet.SignalR.SystemWeb.dll",
-        "lib/net45/Microsoft.AspNet.SignalR.SystemWeb.pdb",
-        "lib/net45/Microsoft.AspNet.SignalR.SystemWeb.xml",
-        "microsoft.aspnet.signalr.systemweb.2.4.2.nupkg.sha512",
-        "microsoft.aspnet.signalr.systemweb.nuspec",
         "packageIcon.png"
       ]
     },
@@ -4094,18 +4070,6 @@
         "ref/xamarinios10/Microsoft.VisualBasic.dll",
         "ref/xamarintvos10/Microsoft.VisualBasic.dll",
         "ref/xamarinwatchos10/Microsoft.VisualBasic.dll"
-      ]
-    },
-    "Microsoft.WebSockets/0.2.3.1": {
-      "sha512": "z5tX7rYNudZQKPMnXsB8HFKTFjLHxExxcHPqQxeOO510FBzp1A51FJrSocWjPTd5wY83Qf+Wh9kym5nwEnl3sQ==",
-      "type": "package",
-      "path": "microsoft.websockets/0.2.3.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.WebSockets.dll",
-        "microsoft.websockets.0.2.3.1.nupkg.sha512",
-        "microsoft.websockets.nuspec"
       ]
     },
     "Microsoft.Win32.Primitives/4.3.0": {
@@ -9756,6 +9720,19 @@
         "websocketmanager.common.nuspec"
       ]
     },
+    "WebSocketSharp/1.0.3-rc11": {
+      "sha512": "7VCF7f7zVMOvLGD8LeGS4DVXc8lOcB6kXnUMeTxigu+PMiU+6wW5Olq2gYrDU8vDRKOwFY+5RyBaLyzb8skEzA==",
+      "type": "package",
+      "path": "websocketsharp/1.0.3-rc11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/websocket-sharp.dll",
+        "lib/websocket-sharp.xml",
+        "websocketsharp.1.0.3-rc11.nupkg.sha512",
+        "websocketsharp.nuspec"
+      ]
+    },
     "connect4Core/1.0.0": {
       "type": "project",
       "path": "../connect4Core/connect4Core.csproj",
@@ -9766,11 +9743,10 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.AspNet.SignalR >= 2.4.2",
       "Microsoft.AspNet.SignalR.JS >= 2.4.2",
-      "Microsoft.AspNet.SignalR.SystemWeb >= 2.4.2",
       "Microsoft.AspNetCore.Http >= 2.2.2",
-      "Microsoft.WebSockets >= 0.2.3.1",
       "Newtonsoft.Json >= 13.0.1",
       "WebSocketManager >= 1.0.1",
+      "WebSocketSharp >= 1.0.3-rc11",
       "connect4Core >= 1.0.0"
     ]
   },
@@ -9825,17 +9801,9 @@
             "target": "Package",
             "version": "[2.4.2, )"
           },
-          "Microsoft.AspNet.SignalR.SystemWeb": {
-            "target": "Package",
-            "version": "[2.4.2, )"
-          },
           "Microsoft.AspNetCore.Http": {
             "target": "Package",
             "version": "[2.2.2, )"
-          },
-          "Microsoft.WebSockets": {
-            "target": "Package",
-            "version": "[0.2.3.1, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -9844,6 +9812,10 @@
           "WebSocketManager": {
             "target": "Package",
             "version": "[1.0.1, )"
+          },
+          "WebSocketSharp": {
+            "target": "Package",
+            "version": "[1.0.3-rc11, )"
           }
         },
         "imports": [
@@ -9873,18 +9845,8 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.SignalR.SystemWeb 2.4.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.AspNet.SignalR.SystemWeb",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.WebSockets 0.2.3.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.WebSockets",
+      "message": "Package 'WebSocketSharp 1.0.3-rc11' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "WebSocketSharp",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]

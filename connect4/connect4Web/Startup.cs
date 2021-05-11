@@ -1,17 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.WebSockets;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WebSocketManager;
-using connect4Web;
 
 namespace connect4Web
 {
@@ -27,7 +18,6 @@ namespace connect4Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddWebSocketManager();
             services.AddControllersWithViews();
 
             // Adds a default in-memory implementation of IDistributedCache.
@@ -51,17 +41,18 @@ namespace connect4Web
 
             app.UseStaticFiles();
 
+            app.UseRouting();
+
             app.UseSession();
 
-            app.UseRouting();
-            
             app.UseCookiePolicy();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
             });
-
+            //https://docs.microsoft.com/en-us/aspnet/core/migration/22-to-30?view=aspnetcore-3.0&tabs=visual-studio
+            //https://stackoverflow.com/questions/58266344/net-core-3-mvc-using-usemvcwithdefaultroute-to-configure-mvc-is-not-suppo
         }
     }
 }

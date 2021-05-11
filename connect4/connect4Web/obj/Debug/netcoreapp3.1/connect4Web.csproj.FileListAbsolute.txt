@@ -81,12 +81,10 @@ E:\Skola\dotnet-2021\connect4\connect4Web\obj\Debug\netcoreapp3.1\Razor\Views\Co
 E:\Skola\dotnet-2021\connect4\connect4Web\obj\Debug\netcoreapp3.1\Razor\Views\Score\Index.cshtml.g.cs
 E:\Skola\dotnet-2021\connect4\connect4Web\obj\Debug\netcoreapp3.1\Razor\Views\Comment\Index.cshtml.g.cs
 E:\Skola\dotnet-2021\connect4\connect4Web\obj\Debug\netcoreapp3.1\Razor\Views\Rating\Index.cshtml.g.cs
-E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\Microsoft.AspNet.SignalR.SystemWeb.dll
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.VisualBasic.dll
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\Microsoft.VisualBasic.dll
-E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\Microsoft.WebSockets.dll
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\WebSocketManager.dll
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\WebSocketManager.Common.dll
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\runtimes\debian-x64\native\libuv.so
@@ -97,3 +95,5 @@ E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\runtimes\rhel-
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
+E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\websocket-sharp.dll
+E:\Skola\dotnet-2021\connect4\connect4Web\bin\Debug\netcoreapp3.1\libman.json

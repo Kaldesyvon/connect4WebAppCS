@@ -5,9 +5,47 @@
     ViewData["Title"] = "Rating";
 }
 
-<ol>
+<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/Connect4">Connect4</a>
+            <a class="nav-item nav-link" href="/Score">Score</a>
+            <a class="nav-item nav-link" href="/Comment">Comment</a>
+            <a class="nav-item nav-link" href="/Rating">Rating</a>
+        </div>
+    </div>
+</nav>
+
+<p>
+    Average is: @Model.GetAverageRating()
+</p>
+
+<form action="/Rating/Add">
+    Add Rating<br />
+    Name:<input type="text" name="Player" />
+    Rating:<input type="text" name="Stars" />
+    <input type="submit" />
+</form>
+
+
+
+<table class="table">
+    <thead>
+    <th>
+        Player
+    </th>
+    <th>
+        Stars
+    </th>
+    <th>
+        Rated at
+    </th>
+    </thead>
     @foreach (var rating in Model.GetRatings())
     {
-        <li>@rating.Player rated @rating.Stars at @rating.RatedAt.</li>
+        <tr><td>@rating.Player</td><td>@rating.Stars</td><td>@rating.RatedAt</td></tr>
     }
-</ol>
+</table>

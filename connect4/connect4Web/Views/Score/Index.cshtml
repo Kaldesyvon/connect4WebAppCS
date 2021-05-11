@@ -5,9 +5,33 @@
     ViewData["Title"] = "Score";
 }
 
-<ol>
+<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/Connect4">Connect4</a>
+            <a class="nav-item nav-link" href="/Score">Score</a>
+            <a class="nav-item nav-link" href="/Comment">Comment</a>
+            <a class="nav-item nav-link" href="/Rating">Rating</a>
+        </div>
+    </div>
+</nav>
+
+<table class="table">
+    <thead>
+        <th>
+            Player
+        </th>
+        <th>
+            Points
+        </th>
+        <th>
+            Played at
+        </th>
+    </thead>
     @foreach (var score in Model.GetTopScores())
     {
-        <li>@score.Player scored @score.Points at @score.PlayedAt.</li>
+        <tr><td>@score.Player</td><td>@score.Points</td><td>@score.PlayedAt</td></tr>
     }
-</ol>
+</table>

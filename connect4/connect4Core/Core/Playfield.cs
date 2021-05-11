@@ -1,12 +1,13 @@
 ﻿using System;
-using Newtonsoft.Json;
 
 namespace connect4Core.Core
 {
     [Serializable]
-    public class Playfield : ICloneable
+    public class Playfield
     {
+        public int Points { get; private set; }
         public Tile[,] Tiles { get; set; }
+        public int Moves { get; private set; }
 
         /// <summary>
         /// Creates field which game is played on. Playfield is made of Tiles.
@@ -18,6 +19,13 @@ namespace connect4Core.Core
             Width = playfieldWidth;
             Height = playfieldHeight;
             Tiles = new Tile[playfieldHeight, playfieldWidth];
+            Moves = 0;
+            Points = 0;
+        }
+
+        public void AddPoints(int amount)
+        {
+            Points += amount;
         }
 
         public int Width { get; }
@@ -66,6 +74,7 @@ namespace connect4Core.Core
             }
             this[rowPosition, column] = stone;
             this[rowPosition, column].RowPosition = rowPosition;
+            Moves++;
             return true;
         }
 
@@ -131,11 +140,9 @@ namespace connect4Core.Core
             return true;
         }
 
-        public object Clone()
+        public bool IsGameWon()
         {
-            var clone = (Playfield) MemberwiseClone();
-            clone.Tiles = (Tile[,]) Tiles.Clone();
-            return clone;
+            return CheckForWin(Color.Yellow) || CheckForWin(Color.Red);
         }
     }
 }

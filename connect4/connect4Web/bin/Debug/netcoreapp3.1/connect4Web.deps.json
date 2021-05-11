@@ -33,11 +33,10 @@
         "dependencies": {
           "Microsoft.AspNet.SignalR": "2.4.2",
           "Microsoft.AspNet.SignalR.JS": "2.4.2",
-          "Microsoft.AspNet.SignalR.SystemWeb": "2.4.2",
           "Microsoft.AspNetCore.Http": "2.2.2",
-          "Microsoft.WebSockets": "0.2.3.1",
           "Newtonsoft.Json": "13.0.1",
           "WebSocketManager": "1.0.1",
+          "WebSocketSharp": "1.0.3-rc11",
           "connect4Core": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -369,17 +368,6 @@
       "Microsoft.AspNet.SignalR.JS/2.4.2": {
         "dependencies": {
           "jQuery": "1.6.4"
-        }
-      },
-      "Microsoft.AspNet.SignalR.SystemWeb/2.4.2": {
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.SignalR.SystemWeb.dll": {
-            "assemblyVersion": "2.4.2.0",
-            "fileVersion": "2.4.2.21106"
-          }
-        },
-        "compile": {
-          "lib/net45/Microsoft.AspNet.SignalR.SystemWeb.dll": {}
         }
       },
       "Microsoft.AspNetCore.Http/2.2.2": {
@@ -964,17 +952,6 @@
             "assemblyVersion": "10.0.2.0",
             "fileVersion": "4.6.24705.1"
           }
-        }
-      },
-      "Microsoft.WebSockets/0.2.3.1": {
-        "runtime": {
-          "lib/net45/Microsoft.WebSockets.dll": {
-            "assemblyVersion": "0.2.3.0",
-            "fileVersion": "0.2.3.0"
-          }
-        },
-        "compile": {
-          "lib/net45/Microsoft.WebSockets.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -2313,6 +2290,17 @@
         },
         "compile": {
           "lib/netcoreapp1.0/WebSocketManager.Common.dll": {}
+        }
+      },
+      "WebSocketSharp/1.0.3-rc11": {
+        "runtime": {
+          "lib/websocket-sharp.dll": {
+            "assemblyVersion": "1.0.2.59611",
+            "fileVersion": "1.0.2.59611"
+          }
+        },
+        "compile": {
+          "lib/websocket-sharp.dll": {}
         }
       },
       "connect4Core/1.0.0": {
@@ -3982,13 +3970,6 @@
       "path": "microsoft.aspnet.signalr.js/2.4.2",
       "hashPath": "microsoft.aspnet.signalr.js.2.4.2.nupkg.sha512"
     },
-    "Microsoft.AspNet.SignalR.SystemWeb/2.4.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-VzMfXFIDsQwWXIXJZlMkOSTW6DnjZ4ZgMcXM4ihbg014DgAezrsNG9aNcsIjNSyDWvMG7iT0oAREjmB+Dvu1Cw==",
-      "path": "microsoft.aspnet.signalr.systemweb/2.4.2",
-      "hashPath": "microsoft.aspnet.signalr.systemweb.2.4.2.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Http/2.2.2": {
       "type": "package",
       "serviceable": true,
@@ -4317,13 +4298,6 @@
       "sha512": "sha512-jgBfelga8QHZDTtUBtLNgcDPuXzaplCeXLqQcf5qB4jeVdPpX1AtnZnGeHbbi2tmp+P96hgI+KhXbUN567K60Q==",
       "path": "microsoft.visualbasic/10.1.0",
       "hashPath": "microsoft.visualbasic.10.1.0.nupkg.sha512"
-    },
-    "Microsoft.WebSockets/0.2.3.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-z5tX7rYNudZQKPMnXsB8HFKTFjLHxExxcHPqQxeOO510FBzp1A51FJrSocWjPTd5wY83Qf+Wh9kym5nwEnl3sQ==",
-      "path": "microsoft.websockets/0.2.3.1",
-      "hashPath": "microsoft.websockets.0.2.3.1.nupkg.sha512"
     },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
@@ -5234,6 +5208,13 @@
       "sha512": "sha512-FLWB/cF14sz337Bct1AFPgEqskXcSWmA67u9JM7Phl0whv9K9OHpPyKnbYfzCyMrvLByjn2nS2SifbGkTV8F9w==",
       "path": "websocketmanager.common/1.0.0",
       "hashPath": "websocketmanager.common.1.0.0.nupkg.sha512"
+    },
+    "WebSocketSharp/1.0.3-rc11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7VCF7f7zVMOvLGD8LeGS4DVXc8lOcB6kXnUMeTxigu+PMiU+6wW5Olq2gYrDU8vDRKOwFY+5RyBaLyzb8skEzA==",
+      "path": "websocketsharp/1.0.3-rc11",
+      "hashPath": "websocketsharp.1.0.3-rc11.nupkg.sha512"
     },
     "connect4Core/1.0.0": {
       "type": "project",

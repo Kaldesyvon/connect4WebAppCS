@@ -1,5 +1,7 @@
+using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using WebSocketSharp.Server;
 
 namespace connect4Web
 {
@@ -7,7 +9,12 @@ namespace connect4Web
     {
         public static void Main(string[] args)
         {
+            WebSocketServer webSocketServer = new WebSocketServer("ws://localhost:43611");
+            webSocketServer.Start();
             CreateHostBuilder(args).Build().Run();
+
+            Console.ReadKey();
+            webSocketServer.Stop();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

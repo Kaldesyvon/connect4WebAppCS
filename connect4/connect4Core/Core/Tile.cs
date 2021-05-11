@@ -3,7 +3,7 @@
 namespace connect4Core.Core
 {
     [Serializable]
-    public class Tile : ICloneable
+    public class Tile
     {
         public Tile(Color tileState, int columnPosition)
         {
@@ -17,9 +17,5 @@ namespace connect4Core.Core
         public int RowPosition { get; set; }
 
         public int ColumnPosition { get; }
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
     }
 }

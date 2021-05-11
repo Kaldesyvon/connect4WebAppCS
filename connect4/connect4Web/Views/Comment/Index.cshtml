@@ -5,9 +5,39 @@
     ViewData["Title"] = "Comments";
 }
 
-<ol>
+<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css"/>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/Connect4">Connect4</a>
+            <a class="nav-item nav-link" href="/Score">Score</a>
+            <a class="nav-item nav-link" href="/Comment">Comment</a>
+            <a class="nav-item nav-link" href="/Rating">Rating</a>
+        </div>
+    </div>
+</nav>
+
+<form action="/Comment/Add">
+    Add Comment<br/>
+    Name:<input type="text" name="Player"/>
+    Comment:<input type="text" name="Feedback"/> 
+    <input type="submit"/>
+</form>
+
+<table class="table">
+    <thead>
+    <th>
+        Player
+    </th>
+    <th>
+        Feedback
+    </th>
+    <th>
+        Commented at
+    </th>
+    </thead>
     @foreach (var comment in Model.GetComments())
     {
-        <li>@comment.Player says @comment.Feedback at @comment.CommentedAt.</li>
+        <tr><td>@comment.Player</td><td>@comment.Feedback</td><td>@comment.CommentedAt</td></tr>
     }
-</ol>
+</table>

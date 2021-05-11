@@ -118,17 +118,9 @@
               "target": "Package",
               "version": "[2.4.2, )"
             },
-            "Microsoft.AspNet.SignalR.SystemWeb": {
-              "target": "Package",
-              "version": "[2.4.2, )"
-            },
             "Microsoft.AspNetCore.Http": {
               "target": "Package",
               "version": "[2.2.2, )"
-            },
-            "Microsoft.WebSockets": {
-              "target": "Package",
-              "version": "[0.2.3.1, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -137,6 +129,10 @@
             "WebSocketManager": {
               "target": "Package",
               "version": "[1.0.1, )"
+            },
+            "WebSocketSharp": {
+              "target": "Package",
+              "version": "[1.0.3-rc11, )"
             }
           },
           "imports": [

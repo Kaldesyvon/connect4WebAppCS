@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Microsoft.AspNetCore.Http;
 
-namespace Microsoft.AspNetCore.Http
+namespace connect4Web
 {
     public static class SessionExtensionsTuke
     {
